@@ -20,8 +20,6 @@ const Playlist = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "user",
     },
-    // left things
-    // which songs, collaborators?
     songs: [{
         type: mongoose.Types.ObjectId,
         ref: "song",
@@ -30,7 +28,7 @@ const Playlist = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "user",
     }],
-    
+
 })
 
 const PlaylistModel = mongoose.model("Playlist", Playlist)
