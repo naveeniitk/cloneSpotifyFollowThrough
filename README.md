@@ -17,7 +17,7 @@
 
 ### 🟢 will use mongodb atlas service provided by mongodb<br>
 
-### 🟢 setting up mongodb cloud using atlas <br>
+### 🟢 setting up mongodb cloud using atlas
 1: check if overview is visible or not<br>
 2: this database on cloud is not linked with us yet<br>
 
