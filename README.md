@@ -24,3 +24,16 @@
 ## Commit : 002 [2023-10-18 14:01:28]
 1: setup cloud-based database using mongodb-atlas <br>
 
+### 🟢 User Model is part of the backEnd
+### 🟢 Database is not linked with the backEnd right now..
+### 🟢 mongodb is noSQL database
+### 🟢 now index.js doesn't know which database to use and from where
+### 🟢 Will use mongoose [ this links NodeJs and mongodb ] package
+### 🟢 > Using mongoose to define how will the data look like within the backEnd env
+
+### 🟢 Defined User Model
+1: defined user model schema inside backend/models<br>
+2: exported the model, so that it's available to index.js and others as a package<br>
+
+## Commit : 003 [2023-10-18 14:30:25]
+1: Added User model, schema and export <br>
