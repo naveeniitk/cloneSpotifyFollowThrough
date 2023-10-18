@@ -1,7 +1,7 @@
 #!/bin/bash
 CURRENTDATE=`date +"%Y-%m-%d %T"`;
 echo $CURRENTDATE;
-echo -e >> README.md;
+echo -e >> README.md; 
 echo "Commit Number : ";
 read N;
 echo "## Commit : $N [$CURRENTDATE]" >> README.md;
@@ -10,6 +10,9 @@ read P;
 for (( i = 1; i <= $P; i++ )); do
 	echo "Line $i: ";
 	read R;
+	if [[ $R == "" ]]; then
+		break;
+	fi 
 	echo "$i: $R <br>" >> README.md;
 done
-echo -e >> README.md;
+# echo -e >> README.md;
