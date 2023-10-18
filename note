@@ -1,0 +1,6 @@
+#!/bin/bash
+echo -e >> README.md;
+echo "Add imp note . . ."
+read N;
+echo "### 🟢 $N<br>" >> README.md;
+echo -e >> README.md;

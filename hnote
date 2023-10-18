@@ -1,0 +1,14 @@
+#!/bin/bash
+echo -e >> README.md;
+echo "Add imp note . . ."
+echo "Topic";
+read Z;
+echo "### 🟢 $N<br>" >> README.md;
+echo "how many lines u want?";
+read P;
+for (( i = 1; i <= $P; i++ )); do
+	echo "Line $i: ";
+	read R;
+	echo "$i: $N<br>" >> README.md;
+done
+echo -e >> README.md;
