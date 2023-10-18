@@ -37,3 +37,14 @@
 
 ## Commit : 003 [2023-10-18 14:30:25]
 1: Added User model, schema and export <br>
+### 🟢 While creating the song model we do not need to take care in which playlist it is [later]
+
+### 🟢 Regarding model making
+1: for song model, artist might not be necessary to be in the model/schema as artist is a user also, so rather than creating the artist in song model we may map id of user(artist) to its songs<br>
+2: playlist will have owner not artist, which can also be handled by the object id of user [ mongoose.Types.ObjectId ]<br>
+3: While creating the Playlist it make sense that we store songs with id not again with [names, thumbnails etc.]<br>
+4: In Playlist model/schema collaborators are also users so will store them by with their id<br>
+
+## Commit : 004 [2023-10-18 14:56:28]
+1: Added model for a Song and Playlist <br>
+2: created seperate files under models inside backend <br>
