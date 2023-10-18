@@ -3,7 +3,7 @@ echo -e >> README.md;
 echo "Add imp note . . ."
 echo "Topic";
 read Z;
-echo "### 🟢 $Z<br>" >> README.md;
+echo "### 🟢 $Z" >> README.md;
 echo "how many lines u want?";
 read P;
 for (( i = 1; i <= $P; i++ )); do
