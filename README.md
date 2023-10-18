@@ -3,7 +3,7 @@
 ## Commit : 000 [2023-10-18 12:27:23]
 1: Added starter files. <br>
 
-### 🟢 FrontEnd : react js<br>
+### 🟢 FrontEnd : react js
  command : npx create-react-app app_name<br>
 
 ## Commit : 001 [2023-10-18 13:04:00]
@@ -11,11 +11,11 @@
 2: setup for backEnd using [ npm inti -y ] <br>
 
 
-### 🟢 npm i express : installs package locally [ i: install ]<br>
-### 🟢 will be using cloud for keeping data<br>
-### 🟢 database will be made using mongodb on cloud<br>
+### 🟢 npm i express : installs package locally [ i: install ]
+### 🟢 will be using cloud for keeping data
+### 🟢 database will be made using mongodb on cloud
 
-### 🟢 will use mongodb atlas service provided by mongodb<br>
+### 🟢 will use mongodb atlas service provided by mongodb
 
 ### 🟢 setting up mongodb cloud using atlas
 1: check if overview is visible or not<br>
