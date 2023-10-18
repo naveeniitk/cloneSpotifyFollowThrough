@@ -28,7 +28,6 @@ const Playlist = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "user",
     }],
-
 })
 
 const PlaylistModel = mongoose.model("Playlist", Playlist)
