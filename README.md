@@ -63,6 +63,7 @@
 11: solution is to use dotenv package<br>
 12: Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.<br>
 13: Adding .env file to the backend folder to add dotenv(variable configure) functionality<br>
+13b: Contents of the .env file can be captured by [ process.env ] variable ![img1](img1.png)
 14: Basically the logic is: we can add some key-value pairs into the .env file inside the backend dir,<br>
 15: and while sharing our code on github we will add this file to gitignore and so this won't be available to anyone<br>
 16: after that in the 2nd arg: [ userNewUrlParser, useUnifiedTopology ] will be uesd with [true] values<br>
