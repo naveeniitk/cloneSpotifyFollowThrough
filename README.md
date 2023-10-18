@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # cloneSpotifyFollowThrough
 
 ## Commit : 000 [2023-10-18 12:27:23]
@@ -6,4 +5,13 @@
 
 =======
 # cloneSpotify
->>>>>>> 2637743a98c75b07612337b6da1ac0586734df3a
+
+
+### 🟢 FrontEnd : react js<br>
+ command : npx create-react-app app_name<br>
+
+
+## Commit : 001 [2023-10-18 13:04:00]
+1: setup for frontEnd using [ npx create-react-app name ] <br>
+2: setup for backEnd using [ npm inti -y ] <br>
+
