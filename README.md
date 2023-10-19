@@ -91,3 +91,21 @@
 ## Commit : 006 [2023-10-19 10:44:41]
 1: Authenticating via passport-jwt : setup <br>
 2: Used the documentation of passport-jwt and copied the code of finding valadity of the user by using findOne in User model <br>
+
+### 🟢 Implementing authentication : signUP
+1: will be creating a route for signup,<br>
+2: will put a post request to create a new user<br>
+3: while sending newUserData we need to encrypt the userPasswords and other sensitive info<br>
+4: we can't store it simply in the data-base as plain text<br>
+5: this possess a high vulnerability risk : with users and on owners as well<br>
+6: for encrypting we may use bcrypt library<br>
+7: Creating a utils folder where we'will store the functions which are helpers like getToken and others<br>
+8: never ever store the simple passwords of users anywhere in the database<br>
+9: even delete the user password<br>
+
+## Commit : 007 [2023-10-19 11:51:12]
+1: implemented the code for the new user to register <br>
+2: checking if the user already exists with the provided email id <br>
+3: if not then hashing the password and then creating a new user after generating token <br>
+4: then returning the token generated to the user with hashedPassword <br>
+5: storing only the hashedPassword in the database and deleting the user password <br>
