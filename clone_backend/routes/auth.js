@@ -52,8 +52,45 @@ router.post("/register", async function(req, res) {
     // we need a corresponding token regarding this user
     // which is needed to identify the user (its unique identity)
     // This getToken function we need to create ourselves
-    const {getToken} = require("../utils/helpers")
+    const {getToken, getToken} = require("../utils/helpers")
     const token = await getToken(email, newUser)
+
+    // step 5
+    // returning the user result
+    const userToReturn = {...newUser.toJSON(), token}
+
+    // step 6
+    // will not store the password of the user anywhere 
+    // will only use hashedPassword in the database
+    delete userToReturn.password
+
+    // returning the status
+    return res.status(200).json(userToReturn)
+})
+
+
+// 009
+// implementing login functionality
+router.post("/login", async function(req, res) {
+    // various steps involved are :
+    // a) getting email and password sent by user from req.body
+    const {email, password} = req.body
+
+    // b) check if a user with given email exists or not
+    const user = await User.findOne({email: email})
+    if(!user){
+        return res.status.json({err:"Invalid Credentials"})
+    }
+
+    // c) if user exists, check if the password is correct.
+    const isPasswordValid = await bcrypt.compare(password, user.password)
+    // This will ofcourse be boolean
+    if(!isPasswordValid){
+        return res.status(403).json({err:"Invalid Credentials"})
+    }
+
+    // d) if credentials are correct, return a token to user.
+    const token = await getToken(user.email, user)
 
     // step 5
     // returning the user result

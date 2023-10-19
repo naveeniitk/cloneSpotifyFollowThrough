@@ -131,3 +131,18 @@
 ## Commit : 008 [2023-10-19 14:16:02]
 1: tested post request for creating a new user via postman <br>
 2: resolved some errors regarding connection and bcrypt.hash function <br>
+### 🟢 for login it will also come inside the auth.js file in routes as '/login' is also a route
+
+### 🟢 implementing login functionality
+1: if email of the user is correct then for checking password is correct or not is a tricky step<br>
+2: to avoid hash collison we can user parameters which are not same for an user<br>
+3: we may user bcrypt.compare function which checks if the hash of the password matches with the user's already stored hashed password<br>
+4: sending same error messages while generating some login access user or others is a nice security management<br>
+5: same msg provides the user a sense that from all the credentials atleast one is incorrect, leaving the user to figure out which of his credentials is wrong, whereas for hackers it gives them no chance to figure out which field is wrong<br>
+6: if say only email is wrong is being msged then hacker can figure out the password it has belongs to some user<br>
+7: if users are low in number of important users then F*** the database<br>
+8: after generating the token return it to the user as a json obj and delete the user password<br>
+
+## Commit : 009 [2023-10-19 14:52:15]
+1: implemented '/login' functionality just like '/register' functionality <br>
+2: for comparing hash of passwords use the bcrypt.compare function to compare the hash of the palintext and the hashed password <br>
