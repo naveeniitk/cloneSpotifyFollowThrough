@@ -146,3 +146,14 @@
 ## Commit : 009 [2023-10-19 14:52:15]
 1: implemented '/login' functionality just like '/register' functionality <br>
 2: for comparing hash of passwords use the bcrypt.compare function to compare the hash of the palintext and the hashed password <br>
+
+### 🟢 Adding create song route
+1: will be implemented inside the routes and with the auth.js<br>
+2: need a middleware while creating /create route after /song<br>
+3: the authenticate will identify wherhter the user is valid or not using the token<br>
+4: we will get the details for song like [name, thumbnail, track] from the req body but for artist we need it as a user and  thus, will access by user._id<br>
+5: after that will return the status [301] after the song is created<br>
+
+## Commit : 010 [2023-10-19 15:41:35]
+1: implemented /song/create route <br>
+2: need to test it as well using postman <br>

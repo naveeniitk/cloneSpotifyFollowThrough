@@ -68,7 +68,6 @@ router.post("/register", async function(req, res) {
     return res.status(200).json(userToReturn)
 })
 
-
 // 009
 // implementing login functionality
 router.post("/login", async function(req, res) {
@@ -91,7 +90,7 @@ router.post("/login", async function(req, res) {
 
     // d) if credentials are correct, return a token to user.
     const token = await getToken(user.email, user)
-
+ 
     // step 5
     // returning the user result
     const userToReturn = {...newUser.toJSON(), token}

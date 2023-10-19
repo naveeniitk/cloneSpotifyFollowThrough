@@ -8,9 +8,6 @@ const mongoose = require("mongoose")
 const JwtStrategy = require('passport-jwt').Strategy,
 ExtractJwt = require('passport-jwt').ExtractJwt;
 
-// importing auth routes
-const authRoutes = require("./routes/auth")
-
 // 2
 // creating app 
 const app = express();
@@ -26,9 +23,12 @@ app.get('/', (requset, response) => {
     response.send('Hello World!!')
 })
 
-// using the routes
+// using the routes 
+// importing auth routes
+const authRoutes = require("./routes/auth")
 app.use('/auth', authRoutes)
-
+const songRoutes = require("./routes/song")
+app.use('/song', songRoutes)
 
 // this takes two arguments 
 // a) to which db to connect to (db url) ?
