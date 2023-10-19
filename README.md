@@ -126,7 +126,7 @@
 3: after resolving error, and estabilishing the connnection ![img5](img5.png)<br>
 4: we can also see the data stored on the cloud atlas as ![img6](img6.png)<br>
 5: haven't setup any logs yet, might be next<br>
-6: we can see the status code on the post request output as [200, ok] ![img7)(img7.png)<br>
+6: we can see the status code on the post request output as [200, ok] ![img7](img7.png)<br>
 
 ## Commit : 008 [2023-10-19 14:16:02]
 1: tested post request for creating a new user via postman <br>
