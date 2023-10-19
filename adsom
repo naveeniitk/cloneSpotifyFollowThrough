@@ -5,9 +5,9 @@ echo -e >> README.md;
 echo "Commit Number : ";
 read N;
 echo "## Commit : $N [$CURRENTDATE]" >> README.md;
-echo "What u did? how many lines u want?";
-read P;
-for (( i = 1; i <= $P; i++ )); do
+echo "What-ever u did!! Start updating . . .";
+
+for (( i = 1; i <= 100; i++ )); do
 	echo "Line $i: ";
 	read R;
 	if [[ $R == "" ]]; then

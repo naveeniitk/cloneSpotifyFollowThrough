@@ -4,6 +4,11 @@ const express = require("express");
 // const { default: mongoose } = require("mongoose");
 const mongoose = require("mongoose")
 
+// setup passport-jwt
+const JwtStrategy = require('passport-jwt').Strategy,
+ExtractJwt = require('passport-jwt').ExtractJwt;
+
+
 // 2
 // creating app 
 const app = express();
@@ -37,10 +42,44 @@ mongoose.connect(cloudUrl,
     console.log("Connected to mongo-cloud!!")
 }).catch((e) => {
     console.log("Error while connecting to cloud!!")
-    console.log(e)
+    console.log(e)  
 })
 // to check if this connection is working or not
 // we may add 
+
+
+
+// 006
+// setting up passport-jwt
+let opts = {}
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+// secretOrKey : need to be in .env
+opts.secretOrKey = "thisIsSecretKey";
+// not mandatory
+// opts.issuer = 'accounts.examplesoft.com';
+// opts.audience = 'yoursite.net';
+const passport = require("passport")
+const User = require("./models/User")
+passport.use(
+    new JwtStrategy(opts, function(jwt_payload, done) {
+        // The User here is the User model defined by us
+        // needs to be imported done above
+        User.findOne({id: jwt_payload.sub}, function(err, user) {
+            // This will return in the form of 
+            // done(error, doesTheUserExist)
+            if (err) {
+                return done(err, false); 
+            }
+            if (user) {
+                return done(null, user);
+            } else {
+                return done(null, false);
+                // or you could create a new account
+            }
+        });
+    })
+);
+
 
 
 // 4

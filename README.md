@@ -79,3 +79,15 @@
 1: Successfully build a connection between the Mongodb-cloud-atlas-database with the index.js file using mongoose <br>
 2: Learnt a new method while authenticating to connect with the atlas-cloud <br>
 3: the new method uses .env file [ process.env.VAR_NAME ] types to get fields which might contain sensitive information <br>
+
+### 🟢 Authentication : Passport
+1: passport : package : help to ease in authentication<br>
+2: jwt : JSON web token<br>
+3: to transmit things securly<br>
+4: need two packages: passport, passport-jwt<br>
+5: documentation : [https://www.passportjs.org/packages/passport-jwt/]<br>
+6: Copy the code for passport written in the documentation<br>
+
+## Commit : 006 [2023-10-19 10:44:41]
+1: Authenticating via passport-jwt : setup <br>
+2: Used the documentation of passport-jwt and copied the code of finding valadity of the user by using findOne in User model <br>
