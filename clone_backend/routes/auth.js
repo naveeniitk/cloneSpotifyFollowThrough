@@ -17,13 +17,7 @@ router.post("/register", async function(req, res) {
     // the body of request here will be of the form 
     // {email, password, firstName, lastName, username }
     // req.body will bring us this kindof data
-    const {
-        email,
-        password,
-        firstName,
-        lastName, 
-        username
-    } = req.body
+    const { email, password, firstName, lastName, username } = req.body
 
     // step 2
     // want to check if this user already exist or not?
@@ -32,6 +26,7 @@ router.post("/register", async function(req, res) {
     const user = await User.findOne({email: email})
     if(user){
         // status code by default is 200
+        // console.log("executed till this...")
         return res
             .status(403)
             .json({error:"A user alreaday exist with this email!"})   
@@ -43,7 +38,7 @@ router.post("/register", async function(req, res) {
     const bcrypt = require("bcrypt")
     // we should never store passwords in plain text format
     // should convert password atleast to a hash number 
-    const hashedPassword = bcrypt.has(password, 10);
+    const hashedPassword = bcrypt.hash(password, 10);
     const newUserData = {
         email,
         hashedPassword, 
@@ -52,7 +47,7 @@ router.post("/register", async function(req, res) {
         username
     }
     const newUser = await User.create(newUserData)
-
+    // console.log("exec?")
     // step 4
     // we need a corresponding token regarding this user
     // which is needed to identify the user (its unique identity)
@@ -72,3 +67,6 @@ router.post("/register", async function(req, res) {
     // returning the status
     return res.status(200).json(userToReturn)
 })
+
+
+module.exports = router

@@ -8,16 +8,27 @@ const mongoose = require("mongoose")
 const JwtStrategy = require('passport-jwt').Strategy,
 ExtractJwt = require('passport-jwt').ExtractJwt;
 
+// importing auth routes
+const authRoutes = require("./routes/auth")
 
 // 2
 // creating app 
 const app = express();
+
+// basically we're telling the express that
+// any body coming while interacting with the app 
+// will automatically should be in json
+app.use(express.json());
 
 // 3
 // API : GET type : / : return text "Hello World!!";
 app.get('/', (requset, response) => {
     response.send('Hello World!!')
 })
+
+// using the routes
+app.use('/auth', authRoutes)
+
 
 // this takes two arguments 
 // a) to which db to connect to (db url) ?
@@ -27,11 +38,15 @@ require("dotenv").config();
 // console.log(process.env);
 
 const cloudUrl = "mongodb+srv://" + process.env.MONGO_USER + ":" + process.env.MONGO_PASS + "@clustermongonk.rpmoi3o.mongodb.net/?retryWrites=true&w=majority"
+
+// const cloudUrl = "mongodb+srv://" + process.env.MONGO_USER + ":" + process.env.MONGO_PASS + ":@clustermongonk.rpmoi3o.mongodb.net/?retryWrites=true&w=majority"
+
 // const cloudUrl = `mongodb+srv://naveenkumar:${process.env.MONGO_PASS}@clustermongonk.rpmoi3o.mongodb.net/?retryWrites=true&w=majority`
 
-console.log(process.env.MONGO_USER);
-console.log(process.env.MONGO_PASS);
+// console.log(process.env.MONGO_USER);
+// console.log(process.env.MONGO_PASS);
 console.log(cloudUrl);
+// console.log(process.env)
 
 mongoose.connect(cloudUrl, 
     {
@@ -48,13 +63,12 @@ mongoose.connect(cloudUrl,
 // we may add 
 
 
-
 // 006
 // setting up passport-jwt
 let opts = {}
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
 // secretOrKey : need to be in .env
-opts.secretOrKey = "thisIsSecretKey";
+opts.secretOrKey = "thisIsSecretKey"; // This secret is to be send along with the token
 // not mandatory
 // opts.issuer = 'accounts.examplesoft.com';
 // opts.audience = 'yoursite.net';
@@ -83,7 +97,7 @@ passport.use(
 
 // 4
 // now tell server, to run on port 8000
-const port = 8000
+const port = 8080
 app.listen(port, function() {
     console.log("app running on port : " + port)
 })

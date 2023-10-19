@@ -109,3 +109,25 @@
 3: if not then hashing the password and then creating a new user after generating token <br>
 4: then returning the token generated to the user with hashedPassword <br>
 5: storing only the hashedPassword in the database and deleting the user password <br>
+### 🟢 jwt not installing : try jsonwebtoken
+
+### 🟢 Testing new user creation, and fixing issues
+1: we need to send the token secretly as well<br>
+2: left with importing auth files to the index.js<br>
+3: nodeJs need to be told to use JSON<br>
+4: for errors in connecting : https://stackoverflow.com/questions/61937581/error-could-not-connect-to-any-servers-in-your-mongodb-atlas-cluster<br>
+5: use Network access to add ip if problem persists<br>
+6: this will resolve the issure : [Could not connect to any servers in your MongoDB Atlas cluster]<br>
+7: Established Connection with cloud, will now use postman<br>
+
+### 🟢 Testing using postman
+1: sending post req on http://localhost:8080/auth/register<br>
+2: getting an error like ![img4](img4.png)<br>
+3: after resolving error, and estabilishing the connnection ![img5](img5.png)<br>
+4: we can also see the data stored on the cloud atlas as ![img6](img6.png)<br>
+5: haven't setup any logs yet, might be next<br>
+6: we can see the status code on the post request output as [200, ok] ![img7)(img7.png)<br>
+
+## Commit : 008 [2023-10-19 14:16:02]
+1: tested post request for creating a new user via postman <br>
+2: resolved some errors regarding connection and bcrypt.hash function <br>

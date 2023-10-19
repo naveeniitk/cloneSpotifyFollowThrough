@@ -1,11 +1,13 @@
-const jwt = require("jwt");
+const jwt = require("jsonwebtoken");
 
 exports = {}
 
-exports.getToken = async function() {
-    const token = jwt.sign({
-        identifier : user._id
-    })
+exports.getToken = async function(user) {
+
+    // will send this token secretly as well
+    const token = jwt.sign(
+        { identifier : user._id }, "thisIsSecretKey"
+    )
     return token
 }
 
