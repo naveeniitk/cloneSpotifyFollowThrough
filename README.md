@@ -198,3 +198,14 @@
 ## Commit : 013 [2023-10-20 13:07:05]
 1: created two api's for creating playlist and getting a playlist data using a playlistId <br>
 2: testing left!! <br>
+
+### 🟢 get playlists for artist using artistId
+1: there are two scenerio(s)<br>
+2: // a) if artist exits and has no playlists<br>
+3: // b) artist doesn't exist<br>
+4: // in both the cases : we will get a same empty array<br>
+
+## Commit : 014 [2023-10-20 13:42:18]
+1: implemented a get playlist for an user with the artistId <br>
+2: and adding a song to a playlist <br>
+3: performed security checks while adding the song <br>
