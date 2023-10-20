@@ -75,30 +75,39 @@ opts.secretOrKey = "thisIsSecretKey"; // This secret is to be send along with th
 const passport = require("passport")
 const User = require("./models/User")
 passport.use(
-    new JwtStrategy(opts, function(jwt_payload, done) {
+    new JwtStrategy(opts, async (jwt_payload, done) => {
+        console.log("getting authentication . . .")
         // The User here is the User model defined by us
         // needs to be imported done above
-        User.findOne({id: jwt_payload.sub}, function(err, user) {
-            // This will return in the form of 
-            // done(error, doesTheUserExist)
-            if (err) {
-                return done(err, false); 
-            }
+        const user = await User.findOne({id: jwt_payload.sub})
+        try{
             if (user) {
+                console.log("1 authentication . . .")
                 return done(null, user);
             } else {
+                console.log("2 authentication . . .")
                 return done(null, false);
                 // or you could create a new account
             }
-        });
+        }
+        catch(err){
+            // console.log(err)
+            console.log("3 authentication . . .")
+            return (err, false)
+        }
+        //, (err, user) => {
+            // This will return in the form of 
+            // done(error, doesTheUserExist)
+            // if (err) {
+            //     return done(err, false); 
+            // }
+        // })
     })
 );
-
 
 // 4
 // now tell server, to run on port 8000
 const port = 8080
-app.listen(port, function() {
+app.listen(port, () => {
     console.log("app running on port : " + port)
 })
-

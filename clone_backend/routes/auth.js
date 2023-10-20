@@ -10,21 +10,23 @@ const router = express.Router()
 
 
 // The POST will register an user
-router.post("/register", async function(req, res) {
+router.post("/register", async (req, res) => {
+    console.log("got a post req (/register)")
     // This code will run when the register api is called as a POST request
-
+    
     // step 1
     // the body of request here will be of the form 
     // {email, password, firstName, lastName, username }
     // req.body will bring us this kindof data
     const { email, password, firstName, lastName, username } = req.body
-
+    
     // step 2
     // want to check if this user already exist or not?
     // const user = User.findOne(); This will bring a user, but for a specific user 
     // we need to pass some info
     const user = await User.findOne({email: email})
     if(user){
+        console.log("error invalid")
         // status code by default is 200
         // console.log("executed till this...")
         return res
@@ -52,7 +54,7 @@ router.post("/register", async function(req, res) {
     // we need a corresponding token regarding this user
     // which is needed to identify the user (its unique identity)
     // This getToken function we need to create ourselves
-    const {getToken, getToken} = require("../utils/helpers")
+    const {getToken} = require("../utils/helpers")
     const token = await getToken(email, newUser)
 
     // step 5
@@ -65,42 +67,46 @@ router.post("/register", async function(req, res) {
     delete userToReturn.password
 
     // returning the status
+    console.log("resolved a post req (/register)")
     return res.status(200).json(userToReturn)
 })
 
 // 009
 // implementing login functionality
-router.post("/login", async function(req, res) {
+router.post("/login", async (req, res) => {
+    console.log("got a post req (/login)")
     // various steps involved are :
     // a) getting email and password sent by user from req.body
     const {email, password} = req.body
-
+    
     // b) check if a user with given email exists or not
     const user = await User.findOne({email: email})
     if(!user){
+        console.log("error invalid")
         return res.status.json({err:"Invalid Credentials"})
     }
-
+    
     // c) if user exists, check if the password is correct.
     const isPasswordValid = await bcrypt.compare(password, user.password)
     // This will ofcourse be boolean
     if(!isPasswordValid){
         return res.status(403).json({err:"Invalid Credentials"})
     }
-
+    
     // d) if credentials are correct, return a token to user.
     const token = await getToken(user.email, user)
- 
+    
     // step 5
     // returning the user result
     const userToReturn = {...newUser.toJSON(), token}
-
+    
     // step 6
     // will not store the password of the user anywhere 
     // will only use hashedPassword in the database
     delete userToReturn.password
-
+    
     // returning the status
+    console.log("resolved a post req (/login)")
     return res.status(200).json(userToReturn)
 })
 

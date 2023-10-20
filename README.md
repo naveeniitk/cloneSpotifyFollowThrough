@@ -157,3 +157,18 @@
 ## Commit : 010 [2023-10-19 15:41:35]
 1: implemented /song/create route <br>
 2: need to test it as well using postman <br>
+
+### 🟢 Adding Get my songs route and testing song routes
+1: encountering error : [https://stackoverflow.com/questions/75649330/mongooseerror-model-findone-no-longer-accepts-a-callback-at-function] ![img8](img8.png)<br>
+2: have to change line from documentation to const user = await User.findOne( .. .. .. . .)<br>
+3: after resolving the issue(which was User.findOne can't accept a callback function any more )<br>
+4: have to change this function as a const var like this ![img10](img10.png)<br>
+5: to this ![img11](img11.png)<br>
+6: final output looks like this ![img9](img9.png)<br>
+### 🟢 While having connectivity error ![img12](img12.png)
+### 🟢 to resolve change the current ip ![img13](img13.png)
+### 🟢 always check if route is correct or not
+
+## Commit : 011 [2023-10-20 11:16:36]
+1: implemented /get/mysongs api to get a user's songs <br>
+2: fixed bugs/issues which were due to old jwt code from documentation and url issue in postman <br>
