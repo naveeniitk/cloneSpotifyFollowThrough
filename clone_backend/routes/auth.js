@@ -11,7 +11,7 @@ const router = express.Router()
 
 // The POST will register an user
 router.post("/register", async (req, res) => {
-    console.log("got a post req (/register)")
+    print("got a post req (/register)")
     // This code will run when the register api is called as a POST request
     
     // step 1
@@ -26,9 +26,9 @@ router.post("/register", async (req, res) => {
     // we need to pass some info
     const user = await User.findOne({email: email})
     if(user){
-        console.log("error invalid")
+        print("error invalid")
         // status code by default is 200
-        // console.log("executed till this...")
+        // print("executed till this...")
         return res
             .status(403)
             .json({error:"A user alreaday exist with this email!"})   
@@ -49,7 +49,7 @@ router.post("/register", async (req, res) => {
         username
     }
     const newUser = await User.create(newUserData)
-    // console.log("exec?")
+    // print("exec?")
     // step 4
     // we need a corresponding token regarding this user
     // which is needed to identify the user (its unique identity)
@@ -67,14 +67,14 @@ router.post("/register", async (req, res) => {
     delete userToReturn.password
 
     // returning the status
-    console.log("resolved a post req (/register)")
+    print("resolved a post req (/register)")
     return res.status(200).json(userToReturn)
 })
 
 // 009
 // implementing login functionality
 router.post("/login", async (req, res) => {
-    console.log("got a post req (/login)")
+    print("got a post req (/login)")
     // various steps involved are :
     // a) getting email and password sent by user from req.body
     const {email, password} = req.body
@@ -82,7 +82,7 @@ router.post("/login", async (req, res) => {
     // b) check if a user with given email exists or not
     const user = await User.findOne({email: email})
     if(!user){
-        console.log("error invalid")
+        print("error invalid")
         return res.status.json({err:"Invalid Credentials"})
     }
     
@@ -106,7 +106,7 @@ router.post("/login", async (req, res) => {
     delete userToReturn.password
     
     // returning the status
-    console.log("resolved a post req (/login)")
+    print("resolved a post req (/login)")
     return res.status(200).json(userToReturn)
 })
 

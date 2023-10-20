@@ -11,4 +11,8 @@ exports.getToken = async (user) => {
     return token
 }
 
+exports.print = (to_print) => {
+	console.log(to_print);
+}
+
 module.exports = exports

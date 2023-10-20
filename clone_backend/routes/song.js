@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const passport = require("passport")
 const Song = require("../models/Song")
+const User = require("../models/User")
 
 // will add a middleware inside this post reqeuest
 // the authenticate will identify whether the user is valid or not using the token
@@ -10,7 +11,7 @@ router.post(
     passport.authenticate("jwt", {session: false}), 
     async (req, res) => {
         // req.user gest the user because of the passport authentication
-        console.log("got a post request (/create)")
+        print("got a post request (/create)")
         const {name, thumbnail, track} = req.body
         if(!name || !thumbnail || !track){
             return res
@@ -30,7 +31,7 @@ router.get(
     "/get/mysongs", 
     passport.authenticate("jwt", {session: false}), 
     async (req, res) => {
-        console.log("got a get request (/get/mysongs)")
+        print("got a get request (/get/mysongs)")
         // const currentUser = req.user
         // we need to get all the songs where artist ID is currentUser._id
         // const sample = {"hola":"nothing"}
@@ -40,25 +41,42 @@ router.get(
     }
 )
 
+// 012
+// api for getting all the songs by an artist [ published songs by artist ]
+// need the artist id to send as a get request as i need data as response
+router.get(
+    "/get/artist",
+    passport.authenticate("jwt", {session: false}),
+    async (req, res) => {
+        print("got a get req for /get/artist")
+        const {artistId} = req.body
+        // we can check if artist exists or not
+        const artist = req.User.find({_id: artistId})
+        if(!artist){
+            return res.status(301).json({err:"Artist does not exist"})
+        }
+
+        const artistSongs = await Song.find({artist: artistId})
+        print("sending artist-songs")
+        return res.status(200).json({data: artistSongs})
+    }
+)
+
+// 012
+// the issue here is for a song we need specific name to search for it 
+// it doesn't match the pattern for the song of for any other
+router.get(
+    "/get/songname", 
+    passport.authenticate("jwt", {session: false}), 
+    async (req, res) => {
+        print("got a get req for /get/songname")
+        const {songName} = req.body
+
+        const songs = await Song.find({name: songName})
+        print("sending the song")
+        return res.status(200).json({data: songs})        
+    }
+)
+
 module.exports = router
-/*
-{
-    "email": "navin011@gamil.com",
-    "password": "SweetLassan",
-    "username": "LdLsn",
-    "firstName": "adoL",
-    "lastName": "nassaL"
-}
-{
-    "firstName": "adoL",
-    "lastName": "nassaL",
-    "email": "navin011@gamil.com",
-    "username": "LdLsn",
-    "likedSongs": "",
-    "likedPlaylists": "",
-    "subscribedArtist": "",
-    "_id": "65310947e2db564233463e0c",
-    "__v": 0,
-    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTc3MTI0NTZ9.v31SEpSMJ_8Yof6_jgbOiZrw8_FHXets1eBcsSe36b4"
-}
-*/
+

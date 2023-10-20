@@ -172,3 +172,13 @@
 ## Commit : 011 [2023-10-20 11:16:36]
 1: implemented /get/mysongs api to get a user's songs <br>
 2: fixed bugs/issues which were due to old jwt code from documentation and url issue in postman <br>
+
+### 🟢 Get songs by artist and song name
+1: implementing /song/get/artist and /song/get/songname<br>
+2: good to implement the search function that can match patterns rather than specific name for the song<br>
+3: multiple songs can be there with same name<br>
+4: This particular thing can be handled by using {Mongodb queries}<br>
+### 🟢 can match patterns while searching for some song/artist or playlist and this can be implemented using [ mongodb queries ]
+
+## Commit : 012 [2023-10-20 12:09:16]
+1: implemented the getting song by its name /get/songname and all the songs of an artist /get/artist <br>

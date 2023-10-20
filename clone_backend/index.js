@@ -35,7 +35,7 @@ app.use('/song', songRoutes)
 // b) Connection options
 // SECURITY ISSUE MAY ARISE DUE TO PASSWORD WRITTEN
 require("dotenv").config();
-// console.log(process.env);
+// print(process.env);
 
 const cloudUrl = "mongodb+srv://" + process.env.MONGO_USER + ":" + process.env.MONGO_PASS + "@clustermongonk.rpmoi3o.mongodb.net/?retryWrites=true&w=majority"
 
@@ -43,10 +43,10 @@ const cloudUrl = "mongodb+srv://" + process.env.MONGO_USER + ":" + process.env.M
 
 // const cloudUrl = `mongodb+srv://naveenkumar:${process.env.MONGO_PASS}@clustermongonk.rpmoi3o.mongodb.net/?retryWrites=true&w=majority`
 
-// console.log(process.env.MONGO_USER);
-// console.log(process.env.MONGO_PASS);
-console.log(cloudUrl);
-// console.log(process.env)
+// print(process.env.MONGO_USER);
+// print(process.env.MONGO_PASS);
+print(cloudUrl);
+// print(process.env)
 
 mongoose.connect(cloudUrl, 
     {
@@ -54,10 +54,10 @@ mongoose.connect(cloudUrl,
         useUnifiedTopology: true,
     }
 ).then((x) => {
-    console.log("Connected to mongo-cloud!!")
+    print("Connected to mongo-cloud!!")
 }).catch((e) => {
-    console.log("Error while connecting to cloud!!")
-    console.log(e)  
+    print("Error while connecting to cloud!!")
+    print(e)  
 })
 // to check if this connection is working or not
 // we may add 
@@ -76,23 +76,23 @@ const passport = require("passport")
 const User = require("./models/User")
 passport.use(
     new JwtStrategy(opts, async (jwt_payload, done) => {
-        console.log("getting authentication . . .")
+        print("getting authentication . . .")
         // The User here is the User model defined by us
         // needs to be imported done above
         const user = await User.findOne({id: jwt_payload.sub})
         try{
             if (user) {
-                console.log("1 authentication . . .")
+                print("1 authentication . . .")
                 return done(null, user);
             } else {
-                console.log("2 authentication . . .")
+                print("2 authentication . . .")
                 return done(null, false);
                 // or you could create a new account
             }
         }
         catch(err){
-            // console.log(err)
-            console.log("3 authentication . . .")
+            // print(err)
+            print("3 authentication . . .")
             return (err, false)
         }
         //, (err, user) => {
@@ -109,5 +109,5 @@ passport.use(
 // now tell server, to run on port 8000
 const port = 8080
 app.listen(port, () => {
-    console.log("app running on port : " + port)
+    print("app running on port : " + port)
 })
