@@ -29,6 +29,8 @@ const authRoutes = require("./routes/auth")
 app.use('/auth', authRoutes)
 const songRoutes = require("./routes/song")
 app.use('/song', songRoutes)
+const playlistRoutes = require("./routes/playlist")
+app.use('/playlist', playlistRoutes)
 
 // this takes two arguments 
 // a) to which db to connect to (db url) ?

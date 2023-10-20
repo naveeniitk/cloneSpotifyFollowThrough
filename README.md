@@ -182,3 +182,19 @@
 
 ## Commit : 012 [2023-10-20 12:09:16]
 1: implemented the getting song by its name /get/songname and all the songs of an artist /get/artist <br>
+
+### 🟢 Implementing the playlist creation and userid's playlist
+1: while creating a route we need to use via app in index.js<br>
+2: we might have options for creating a playlist like creating a new playlist while adding a new song or<br>
+3: empty playlist or adding a song to some playlist<br>
+4: while getting a playlist after searching, we will get it by a playlistId which should be visible inside the url<br>
+5: so we need to make the route with specific playlistId [ /get/:playlistId ]<br>
+6: here :playlistId is kindof acting as a variable<br>
+7: so if we call /playlist/get/xxxxxxxxx<br>
+8: this will surely call this api and<br>
+
+### 🟢 Important concept : req.params : while posting a get request we cannot send data : thus if we have defined any variables inside url we can use those params as variable to get data
+
+## Commit : 013 [2023-10-20 13:07:05]
+1: created two api's for creating playlist and getting a playlist data using a playlistId <br>
+2: testing left!! <br>
