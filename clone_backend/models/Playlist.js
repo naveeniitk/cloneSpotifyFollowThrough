@@ -10,7 +10,7 @@ const mongoose = require("mongoose")
 const Playlist = new mongoose.Schema({
     name:{
         type: String,
-        required: true,
+        required: true, 
     },
     thumbnail:{
         type: String,
@@ -20,7 +20,7 @@ const Playlist = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "user",
     },
-    songs: [{
+    songs: [{ 
         type: mongoose.Types.ObjectId,
         ref: "song",
     }],

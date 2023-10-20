@@ -12,6 +12,10 @@ ExtractJwt = require('passport-jwt').ExtractJwt;
 // creating app 
 const app = express();
 
+function print(x){
+    console.log(x);
+}
+
 // basically we're telling the express that
 // any body coming while interacting with the app 
 // will automatically should be in json

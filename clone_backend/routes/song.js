@@ -4,6 +4,10 @@ const passport = require("passport")
 const Song = require("../models/Song")
 const User = require("../models/User")
 
+function print(to_print){
+    console.log(to_print);
+}
+
 // will add a middleware inside this post reqeuest
 // the authenticate will identify whether the user is valid or not using the token
 router.post(
@@ -45,13 +49,13 @@ router.get(
 // api for getting all the songs by an artist [ published songs by artist ]
 // need the artist id to send as a get request as i need data as response
 router.get(
-    "/get/artist",
+    "/get/artist/:artistId",
     passport.authenticate("jwt", {session: false}),
     async (req, res) => {
-        print("got a get req for /get/artist")
-        const {artistId} = req.body
+        print("got a get req for /get/artist/:artistId")
+        const {artistId} = req.params
         // we can check if artist exists or not
-        const artist = req.User.find({_id: artistId})
+        const artist = await User.find({_id: artistId})
         if(!artist){
             return res.status(301).json({err:"Artist does not exist"})
         }
@@ -66,11 +70,11 @@ router.get(
 // the issue here is for a song we need specific name to search for it 
 // it doesn't match the pattern for the song of for any other
 router.get(
-    "/get/songname", 
+    "/get/songname/:songName", 
     passport.authenticate("jwt", {session: false}), 
     async (req, res) => {
         print("got a get req for /get/songname")
-        const {songName} = req.body
+        const {songName} = req.params
 
         const songs = await Song.find({name: songName})
         print("sending the song")

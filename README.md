@@ -209,3 +209,25 @@
 1: implemented a get playlist for an user with the artistId <br>
 2: and adding a song to a playlist <br>
 3: performed security checks while adding the song <br>
+
+### 🟢 Testing song and playlist api's
+1: after performing checks getting server crashed after passing artistId with different lengths<br>
+2: if passing Id's with same length then its getting an empty data json obj<br>
+3: we can see that the url in the songs allows spaces which is not a good way<br>
+4: as it might led to breakdown of url or others ![img14](img14.png)<br>
+5: also we are not getting an error on an unknown song which is not in database ![img15](img15.png)<br>
+6: while creating a playlist using an empty list of songs we get ![img16](img16.png)<br>
+7: haven't added the api for adding songs while creating the playlist<br>
+8: After adding playlists we can use them for testing corresponding to a user<br>
+9: ![img17](img17.png)<br>
+10: getting list of playlist by usig artist id ![img18](img18.png)<br>
+### 🟢 Got a bug while adding a song in the playlist
+### 🟢 in get/artist/:artistId error msg not showing
+### 🟢 in get playlist from artistId not working
+### 🟢 in database not storing hashed password
+
+## Commit : 015 [2023-10-20 17:00:43]
+1: completed testing of api : adding a song in the playlist : got a bug <br>
+2: completed testing of api : getting playlist by artistId  : no bug <br>
+3: bug += 1 : database not showing the hashed-passwords <br>
+4: bug += 1 : error msg is not showing while in get/artist/:artistId <br>

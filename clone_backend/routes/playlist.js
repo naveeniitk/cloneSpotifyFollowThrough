@@ -7,6 +7,10 @@ const Song = require("../models/Song")
 
 const router = express.Router()
 
+function print(to_print){
+    console.log(to_print);
+}
+
 /*
 const Playlist = new mongoose.Schema({
     name:{
@@ -79,7 +83,7 @@ router.get(
             return res.status(304).json({err:"Invalid PlaylistId"})
         }
 
-        return res.status(200).json(playlistData)
+        return res.status(200).json(playlist)
     }
 )
 
@@ -113,7 +117,7 @@ router.post(
     passport.authenticate("jwt", {session: false}),
     async (req, res) => {
         const currentUser = req.user
-        const {plalistId, songId} = req.body
+        const {playlistId, songId} = req.body
         // step 0:
         // checking if the playlist exists or not
         const playlist = await Playlist.findOne({_id: playlistId})
@@ -123,7 +127,7 @@ router.post(
 
         // step 1:
         // check if this current user is owner/collaborator of this playlist or not
-        if(!(playlist.owner === currentUser._id || palylist.collaborator.includes(currentUser._id))){
+        if(!(playlist.owner === currentUser._id || playlist.collaborators.includes(currentUser._id))){
             return res.status(400).json({err: "This playlist is not yours."})
         }
 

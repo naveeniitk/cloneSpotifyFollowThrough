@@ -1,6 +1,10 @@
 const express = require("express")
 const User = require("../models/User")
 
+function print(to_print){
+    console.log(to_print);
+}
+
 // 007 : router creation
 const router = express.Router()
 // this will also work but it is app type with un-necessary details which a router 
