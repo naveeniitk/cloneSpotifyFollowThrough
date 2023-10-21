@@ -151,8 +151,8 @@
 1: will be implemented inside the routes and with the auth.js<br>
 2: need a middleware while creating /create route after /song<br>
 3: the authenticate will identify wherhter the user is valid or not using the token<br>
-4: we will get the details for song like [name, thumbnail, track] from the req body but for artist we need it as a user and  thus, will access by user._id<br>
-5: after that will return the status [301] after the song is created<br>
+4: we will get the details for song like [name, thumbnail, track] from the req body but for artist we need it as a user and  thus, will access by user.\_id<br>
+5: after that will return the status [301] after the song is created \<br>
 
 ## Commit : 010 [2023-10-19 15:41:35]
 1: implemented /song/create route <br>
@@ -237,7 +237,7 @@
 2: the User.find function is giving a empty array so its not showing error<br>
 3: just found a type error in the /add/song api<br>
 4: code : ![img20](img20.png) and debug : ![img21](img21.png)<br>
-### 🟢 Object Comparison Basics : When comparing objects in JavaScript, we can't use the regular comparison operators ( == or === ) because they only check for reference equality, not structural equality. In other words, they check if two objects are the same object in memory, not if they have the same properties and values.
+### 🟢 Object Comparison Basics : When comparing objects in JavaScript, we cant use the regular comparison operators ( == or === ) because they only check for reference equality, not structural equality. In other words, they check if two objects are the same object in memory, not if they have the same properties and values.
 ### 🟢 for comparing two objects we need to use var1.equals(var2) syntax [ jS ]
 ### 🟢 after adding the song to a owned playlist ![img22](img22.png)
 
