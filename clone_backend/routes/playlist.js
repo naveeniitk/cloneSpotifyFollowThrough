@@ -9,6 +9,7 @@ const router = express.Router()
 
 function print(to_print){
     console.log(to_print);
+    console.log()
 }
 
 /*
@@ -93,7 +94,7 @@ router.get(
     '/get/artist/:artistId',
     passport.authenticate("jwt",{session: false}),
     async(req, res) => {
-        const artistId = req.params.artistId
+        const {artistId} = req.params
 
         // now we need to get all the playlists of an artist using its artistId
         // here there are two scenerio(s)
@@ -101,12 +102,13 @@ router.get(
         // b) artist doesn't exist
         // in both the cases : we will get a same empty array
         const artist = await User.findOne({_id: artistId})
+        print(artist)
         if(!artist){
             return res.status(304).json({err:"artist does not exits"})
         }
 
-        const palylists = await Playlist.find({owner: artistId})
-        return res.status(200).json({data: palylists})
+        const playlists = await Playlist.find({owner: artistId})
+        return res.status(200).json({data: playlists})
     }
 )
 
@@ -126,8 +128,15 @@ router.post(
         }
 
         // step 1:
-        // check if this current user is owner/collaborator of this playlist or not
-        if(!(playlist.owner === currentUser._id || playlist.collaborators.includes(currentUser._id))){
+        // print(playlist)
+        // print(playlist.owner)
+        // print(currentUser)
+        // print(currentUser._id)
+        // print(playlist.owner === currentUser._id)
+        // print(typeof(playlist.owner))
+        // print(typeof(currentUser._id))
+        // check if this current user is owner/collaborators of this playlist or not
+        if(!(playlist.owner.equals(currentUser._id) || playlist.collaborators.includes(currentUser._id))){
             return res.status(400).json({err: "This playlist is not yours."})
         }
 
@@ -140,11 +149,11 @@ router.post(
 
         // step 3:
         // now we can simply add the song
-        palylists.songs.push(songId)
+        playlist.songs.push(songId)
         // saving the data into the database as till above the data is only stored locally
         await playlist.save();
 
-        return res.status(200).json(palylist)
+        return res.status(200).json(playlist)
     }
 )
 

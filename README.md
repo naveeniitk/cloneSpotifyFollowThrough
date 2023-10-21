@@ -231,3 +231,15 @@
 2: completed testing of api : getting playlist by artistId  : no bug <br>
 3: bug += 1 : database not showing the hashed-passwords <br>
 4: bug += 1 : error msg is not showing while in get/artist/:artistId <br>
+
+### 🟢 Fixing bugs
+1: bug 1 : ![img19](img19.png) : even if we send wrong artistId then it doesn't show error<br>
+2: the User.find function is giving a empty array so its not showing error<br>
+3: just found a type error in the /add/song api<br>
+4: code : ![img20](img20.png) and debug : ![img21](img21.png)<br>
+### 🟢 Object Comparison Basics : When comparing objects in JavaScript, we can't use the regular comparison operators ( == or === ) because they only check for reference equality, not structural equality. In other words, they check if two objects are the same object in memory, not if they have the same properties and values.
+### 🟢 for comparing two objects we need to use var1.equals(var2) syntax [ jS ]
+### 🟢 after adding the song to a owned playlist ![img22](img22.png)
+
+## Commit : 016 [2023-10-21 11:16:50]
+1: fixed bugs occurred while previous testing <br>

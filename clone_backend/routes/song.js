@@ -55,7 +55,7 @@ router.get(
         print("got a get req for /get/artist/:artistId")
         const {artistId} = req.params
         // we can check if artist exists or not
-        const artist = await User.find({_id: artistId})
+        const artist = await User.findOne({_id: artistId})
         if(!artist){
             return res.status(301).json({err:"Artist does not exist"})
         }
