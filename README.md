@@ -243,6 +243,7 @@
 
 ## Commit : 016 [2023-10-21 11:16:50]
 1: fixed bugs occurred while previous testing <br>
+<<<<<<< HEAD
 
 ### 🟢 ADding Tailwind CSS to React JS
 1: tailwind css is a type ladder<br>
@@ -255,3 +256,6 @@
 1: added support for frontEnd <br>
 2: added tailwind and craco support and started webserver for frontend <br>
 3: using tailwind documentation <br>
+=======
+### 🟢 added "AllMightyNavin" as a Collabor[D[D[D[D[D[D[D[D[D[D"theOtherId"[3~[3~[3~[D[D[D[D[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cd" as a collaborator
+>>>>>>> b9f0260ade26f6c05c05d17e15f7479015f2a15b
