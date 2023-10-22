@@ -257,3 +257,16 @@
 3: using tailwind documentation <br>
 
 ### 🟢 added "theOtherId" as a collaborator
+
+### 🟢 Setting up React Router v6 in ReactJS
+1: installing [ npm i react-router-dom ]<br>
+2: helps to figure out why the /something works<br>
+3: browserRouter not defined error : install npm i @emailjs/browser<br>
+4: have to import [ import {BrowserRouter} from 'react-router-dom';<br>
+5: BrowserRouter's significance is its wrapper content [ imagine like a parent component ]<br>
+6: support component making which can make rendering easier<br>
+7: will make different components specific to api's which will be used for rendering<br>
+
+## Commit : 018 [2023-10-22 17:07:28]
+1: setup of routes, BrowserRouter and route to ease the render <br>
+2: ![img23](img23.png) <br>
