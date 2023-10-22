@@ -269,4 +269,4 @@
 
 ## Commit : 018 [2023-10-22 17:07:28]
 1: setup of routes, BrowserRouter and route to ease the render <br>
-2: ![img23](img23.png) <br>
+2: setup for rendering ![img23](img23.png) <br>
