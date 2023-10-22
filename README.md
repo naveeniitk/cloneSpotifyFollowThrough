@@ -243,3 +243,15 @@
 
 ## Commit : 016 [2023-10-21 11:16:50]
 1: fixed bugs occurred while previous testing <br>
+
+### 🟢 ADding Tailwind CSS to React JS
+1: tailwind css is a type ladder<br>
+2: changed element script in package.json inside frontend folder<br>
+3: added craco commands<br>
+4: created craco.config.js file at root of the folder with [info from doc]<br>
+5: The doc [ https://v2.tailwindcss.com/docs/guides/create-react-app ]<br>
+
+## Commit : 017 [2023-10-22 14:42:57]
+1: added support for frontEnd <br>
+2: added tailwind and craco support and started webserver for frontend <br>
+3: using tailwind documentation <br>
