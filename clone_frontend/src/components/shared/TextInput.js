@@ -1,6 +1,6 @@
-const TextInput = ({label, placeholder}) => {
+const TextInput = ({label, placeholder, className}) => {
     return (
-        <div className="textInputDiv w-full flex flex-col space-y-2">
+        <div className={`textInputDiv w-full flex flex-col space-y-2 ${className}`} >
             <label for={label}
                 className="font-semibold w-full ">
                 {label}

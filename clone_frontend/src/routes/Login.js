@@ -16,11 +16,15 @@ const LoginComponent = () => {
                 <TextInput 
                     label="Email address or Username"
                     placeholder="Email Id or Username"
+                    className={`my-5`}
                 />
                 <PasswordInput
                     label="Password"
                     placeholder="Passwrord"
                 />
+                <button className='bg-green-300 text-lg font-semibold px-1 py-5 rounded-full'>
+                    LOG IN
+                </button>
             </div>
         </div>
     );

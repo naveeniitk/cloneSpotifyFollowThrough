@@ -280,6 +280,8 @@
 6: run the server from [ npm run start ]<br>
 7: setup working<br>
 
+completed;
+
 ### 🟢 login page
 1: will use iconify to get spotify icons<br>
 2: will use flex for positioning of components<br>
