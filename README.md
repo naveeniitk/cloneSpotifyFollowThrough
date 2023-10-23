@@ -270,3 +270,19 @@
 ## Commit : 018 [2023-10-22 17:07:28]
 1: setup of routes, BrowserRouter and route to ease the render <br>
 2: setup for rendering ![img23](img23.png) <br>
+
+### 🟢 Spotify Login page
+1: Tailwind was malfunctioning so have to run these commands<br>
+2: a) npm uninstall postcss<br>
+3: b) npm install postcss@8<br>
+4: c) npx tailwindcss@2 -i ./src/index.css -o ./src/output.css<br>
+5: Need to include this output.css inside app.js<br>
+6: run the server from [ npm run start ]<br>
+7: setup working<br>
+
+### 🟢 login page
+1: will use iconify to get spotify icons<br>
+2: will use flex for positioning of components<br>
+
+## Commit : 019 [2023-10-23 10:20:11]
+1: login page logo setup and using flex to position <br>
