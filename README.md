@@ -286,3 +286,12 @@
 
 ## Commit : 019 [2023-10-23 10:20:11]
 1: login page logo setup and using flex to position <br>
+
+### 🟢 login page p2
+1: will use shared folder for elements which are similar across different pages<br>
+2: added textinput.js and passwrodinput.js for input fields<br>
+3: used var in html<br>
+
+## Commit : 020 [2023-10-23 11:19:59]
+1: login page part 2: text and input fields for email and password <br>
+2: creations of components and shared elements to be used throughout the project <br>
